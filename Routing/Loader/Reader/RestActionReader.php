@@ -190,9 +190,11 @@ class RestActionReader
             $defaults     = array_merge($defaults, $annotation->getDefaults());
         }
 
+        $defaults['_format'] = 'json';
+
         // add route to collection
         $collection->add($routeName, new Route(
-            $pattern.'.{_format}', $defaults, $requirements, $options
+            $pattern, $defaults, $requirements, $options
         ));
     }
 
